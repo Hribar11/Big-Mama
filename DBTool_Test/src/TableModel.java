@@ -3,11 +3,14 @@ import java.util.*;
 
 public class TableModel extends AbstractTableModel {
 
-    private String[] columnNames = {"FirstColumn","SecondColumn","ThirdColumn"};
-    List<ArrayList> list = new ArrayList();
+    private List<String> columnNames = new ArrayList();
+    private List<ArrayList<String>> list = new ArrayList();
+    private DatabaseGateway dbGateway = new DatabaseGateway();
 
     public TableModel(){
-        addTestData();
+        //addTestData();
+        loadFromDB();
+        System.out.println(list.size());
     }
 
     public void addTestData(){
@@ -28,22 +31,27 @@ public class TableModel extends AbstractTableModel {
         }});
     }
 
-    @Override
-    public int getRowCount() {return list.get(0).size();}
-
-    @Override
-    public int getColumnCount() {
-        return list.size();
+    public void loadFromDB(){
+        list = dbGateway.getRows();
+        columnNames = dbGateway.getColumnNames();
     }
 
     @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
+    public int getRowCount() {return list.size();}
+
+    @Override
+    public int getColumnCount() {
+        return columnNames.size();
+    }
+
+    @Override
+    public String getValueAt(int rowIndex, int columnIndex) {
         return list.get(rowIndex).get(columnIndex);
     }
 
     @Override
     public String getColumnName(int in){
-        return columnNames[in];
+        return columnNames.get(in);
     }
 
     @Override
