@@ -32,12 +32,12 @@ public class DatabaseGateway {
                 //TODO
                 //getting different SQL statements
                 //--------------------------------------
-                ResultSet rs = stmt.executeQuery(SQL);
-                ResultSetMetaData rsm = rs.getMetaData();
+                ResultSet rs = stmt.executeQuery(SQL);//Query will be executed
+                ResultSetMetaData rsm = rs.getMetaData();//getting Metadata from rs to get column names
 
+                //iterating through rsm to get column names
                 for(int i = 1; i < rsm.getColumnCount() +1; i++){
                     if(!prev.equals(rsm.getColumnName(i))) {
-                        //System.out.println(rsm.getColumnName(i));
                         columnNames.add(rsm.getColumnName(i));
                     }
                     prev = rsm.getColumnName(i);
