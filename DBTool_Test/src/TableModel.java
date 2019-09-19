@@ -8,7 +8,6 @@ public class TableModel extends AbstractTableModel {
     private DatabaseGateway dbGateway = new DatabaseGateway();
 
     public TableModel(){
-        //addTestData();
         loadFromDB();
         System.out.println(list.size());
     }
@@ -40,9 +39,7 @@ public class TableModel extends AbstractTableModel {
     public int getRowCount() {return list.size();}
 
     @Override
-    public int getColumnCount() {
-        return columnNames.size();
-    }
+    public int getColumnCount() {return columnNames.size();}
 
     @Override
     public String getValueAt(int rowIndex, int columnIndex) {
