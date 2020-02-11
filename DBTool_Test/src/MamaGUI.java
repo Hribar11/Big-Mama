@@ -10,6 +10,7 @@ public class MamaGUI {
     private JTable table1;
     private JScrollPane scrollPane1;
     private TableModel tableModel = new TableModel();
+//Banane
 
     public MamaGUI() {
         table1.addMouseListener(new MouseAdapter() {
