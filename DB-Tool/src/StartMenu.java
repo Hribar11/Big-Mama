@@ -1,6 +1,4 @@
 
-
-
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileFilter;
@@ -35,7 +33,6 @@ public class StartMenu extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         btTable1 = new javax.swing.JButton();
         btTable2 = new javax.swing.JButton();
@@ -78,10 +75,7 @@ public class StartMenu extends javax.swing.JFrame {
                 fileChooserActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridwidth = java.awt.GridBagConstraints.RELATIVE;
-        gridBagConstraints.gridheight = java.awt.GridBagConstraints.RELATIVE;
-        getContentPane().add(fileChooser, gridBagConstraints);
+        getContentPane().add(fileChooser, new java.awt.GridBagConstraints());
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -1,15 +1,16 @@
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
+import panels.LoginCheckPanel;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -24,7 +25,7 @@ public class MamaGUI extends javax.swing.JFrame {
      */
     public MamaGUI() {
         initComponents();
-
+        setLocationRelativeTo(null);
         table1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -35,7 +36,7 @@ public class MamaGUI extends javax.swing.JFrame {
     }
 
     StartMenu StartMenu = new StartMenu();
-    LoginCheck check = new LoginCheck();
+    LoginCheckPanel loginPanel = new LoginCheckPanel();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,13 +55,6 @@ public class MamaGUI extends javax.swing.JFrame {
         btEdit = new javax.swing.JButton();
         btDelete = new javax.swing.JButton();
         btLogin = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        fileMenu = new javax.swing.JMenu();
-        about = new javax.swing.JMenuItem();
-        help = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
-        csvImport = new javax.swing.JMenuItem();
-        logout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Big Mama Management Software");
@@ -126,64 +120,32 @@ public class MamaGUI extends javax.swing.JFrame {
         getContentPane().add(Buttons, java.awt.BorderLayout.PAGE_END);
         Buttons.setBackground(Color.WHITE);
 
-        fileMenu.setText("File");
-
-        about.setText("About");
-        fileMenu.add(about);
-
-        help.setText("Help");
-        fileMenu.add(help);
-
-        jMenuBar1.add(fileMenu);
-
-        editMenu.setText("Edit");
-
-        csvImport.setText("Import from CSV");
-        csvImport.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                csvImportMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                csvImportMousePressed(evt);
-            }
-        });
-        csvImport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                csvImportActionPerformed(evt);
-            }
-        });
-        editMenu.add(csvImport);
-
-        logout.setText("Logout");
-        editMenu.add(logout);
-
-        jMenuBar1.add(editMenu);
-
-        setJMenuBar(jMenuBar1);
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAddMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAddMousePressed
-        
+        StartMenu.setVisible(true);
     }//GEN-LAST:event_btAddMousePressed
 
     private void btLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btLoginMousePressed
-       check.setVisible(true);
+        createWindow(loginPanel);
     }//GEN-LAST:event_btLoginMousePressed
 
-    private void csvImportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_csvImportMouseClicked
-        
-    }//GEN-LAST:event_csvImportMouseClicked
-
-    private void csvImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_csvImportActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_csvImportActionPerformed
-
-    private void csvImportMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_csvImportMousePressed
-        StartMenu.setVisible(true);
-    }//GEN-LAST:event_csvImportMousePressed
-
+    
+    private void createWindow(JPanel content){
+        JFrame loginFrame = new JFrame();
+        loginFrame.add(content);
+        loginFrame.setSize(300, 300);
+        loginFrame.setLocationRelativeTo(null);
+        loginFrame.setVisible(true);
+    }
+    private void createWindow(JPanel content,int width,int height){
+         JFrame loginFrame = new JFrame();
+        loginFrame.add(content);
+        loginFrame.setSize(width, height);
+        loginFrame.setLocationRelativeTo(null);
+        loginFrame.setVisible(true);
+    }
     /**
      * @param args the command line arguments
      */
@@ -224,17 +186,10 @@ public class MamaGUI extends javax.swing.JFrame {
     private javax.swing.JPanel Buttons;
     private javax.swing.JScrollPane ScrollPane;
     private javax.swing.JPanel Tables;
-    private javax.swing.JMenuItem about;
     private javax.swing.JButton btAdd;
     private javax.swing.JButton btDelete;
     private javax.swing.JButton btEdit;
     private javax.swing.JButton btLogin;
-    private javax.swing.JMenuItem csvImport;
-    private javax.swing.JMenu editMenu;
-    private javax.swing.JMenu fileMenu;
-    private javax.swing.JMenuItem help;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem logout;
     private javax.swing.JTable table1;
     // End of variables declaration//GEN-END:variables
 }
