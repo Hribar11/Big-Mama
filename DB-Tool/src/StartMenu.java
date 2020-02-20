@@ -1,6 +1,17 @@
 
+<<<<<<< Updated upstream:DBTool_Test/src/StartMenu.java
 
 
+=======
+<<<<<<< HEAD:DBTool_Test/src/StartMenu.java
+=======
+import java.awt.Toolkit;
+import java.io.File;
+import java.io.FileFilter;
+>>>>>>> master:DB-Tool/src/StartMenu.java
+import javax.swing.JButton;
+import java.awt.Color;
+>>>>>>> Stashed changes:DB-Tool/src/StartMenu.java
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileFilter;
@@ -35,7 +46,6 @@ public class StartMenu extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         btTable1 = new javax.swing.JButton();
         btTable2 = new javax.swing.JButton();
@@ -62,6 +72,7 @@ public class StartMenu extends javax.swing.JFrame {
                 onChooseTableButtonClicked(evt);
             }
         });
+<<<<<<< Updated upstream:DBTool_Test/src/StartMenu.java
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Choose .csv file for import");
@@ -82,6 +93,34 @@ public class StartMenu extends javax.swing.JFrame {
         gridBagConstraints.gridwidth = java.awt.GridBagConstraints.RELATIVE;
         gridBagConstraints.gridheight = java.awt.GridBagConstraints.RELATIVE;
         getContentPane().add(fileChooser, gridBagConstraints);
+=======
+<<<<<<< HEAD:DBTool_Test/src/StartMenu.java
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 50;
+        gridBagConstraints.ipady = 100;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        getContentPane().add(btTable3, gridBagConstraints);
+=======
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Choose .csv file for import");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("ZF_Logo.png")));
+        getContentPane().setLayout(new java.awt.GridBagLayout());
+
+        fileChooser.setAcceptAllFileFilterUsed(false);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(".csv Files", "csv");
+        fileChooser.setFileFilter(filter);
+        //fileChooser.showOpenDialog(frame);
+        File selectedFile = fileChooser.getSelectedFile();
+        fileChooser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fileChooserActionPerformed(evt);
+            }
+        });
+        getContentPane().add(fileChooser, new java.awt.GridBagConstraints());
+>>>>>>> master:DB-Tool/src/StartMenu.java
+>>>>>>> Stashed changes:DB-Tool/src/StartMenu.java
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

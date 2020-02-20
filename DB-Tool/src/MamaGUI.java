@@ -1,15 +1,32 @@
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+<<<<<<< Updated upstream:DBTool_Test/src/MamaGUI.java
 
+=======
+<<<<<<< HEAD:DBTool_Test/src/MamaGUI.java
+=======
+
+import panels.LoginCheckPanel;
+>>>>>>> master:DB-Tool/src/MamaGUI.java
+>>>>>>> Stashed changes:DB-Tool/src/MamaGUI.java
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+<<<<<<< Updated upstream:DBTool_Test/src/MamaGUI.java
+=======
+<<<<<<< HEAD:DBTool_Test/src/MamaGUI.java
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+=======
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+>>>>>>> master:DB-Tool/src/MamaGUI.java
+>>>>>>> Stashed changes:DB-Tool/src/MamaGUI.java
 
 /**
  *
@@ -24,7 +41,7 @@ public class MamaGUI extends javax.swing.JFrame {
      */
     public MamaGUI() {
         initComponents();
-
+        setLocationRelativeTo(null);
         table1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -32,7 +49,26 @@ public class MamaGUI extends javax.swing.JFrame {
             }
         });
         table1.setModel(tableModel);
+<<<<<<< Updated upstream:DBTool_Test/src/MamaGUI.java
+=======
+
+<<<<<<< HEAD:DBTool_Test/src/MamaGUI.java
+        this.getContentPane().setBackground(Color.WHITE);
+        this.buttonName = buttonName;
+
+        DefaultComboBoxModel selectModel = (DefaultComboBoxModel) dlSelect.getModel();
+
+        if (selectModel.getIndexOf(buttonName) == -1) {
+            selectModel.addElement(buttonName);
+        }
+
+        //dlSelect.setSelectedIndex(Integer.parseInt(buttonName.substring(5))); 
+>>>>>>> Stashed changes:DB-Tool/src/MamaGUI.java
     }
+=======
+    StartMenu StartMenu = new StartMenu();
+    LoginCheckPanel loginPanel = new LoginCheckPanel();
+>>>>>>> master:DB-Tool/src/MamaGUI.java
 
     StartMenu StartMenu = new StartMenu();
     LoginCheck check = new LoginCheck();
@@ -54,6 +90,11 @@ public class MamaGUI extends javax.swing.JFrame {
         btEdit = new javax.swing.JButton();
         btDelete = new javax.swing.JButton();
         btLogin = new javax.swing.JButton();
+<<<<<<< Updated upstream:DBTool_Test/src/MamaGUI.java
+=======
+<<<<<<< HEAD:DBTool_Test/src/MamaGUI.java
+        dlSelect = new javax.swing.JComboBox<>();
+>>>>>>> Stashed changes:DB-Tool/src/MamaGUI.java
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         about = new javax.swing.JMenuItem();
@@ -61,6 +102,8 @@ public class MamaGUI extends javax.swing.JFrame {
         editMenu = new javax.swing.JMenu();
         csvImport = new javax.swing.JMenuItem();
         logout = new javax.swing.JMenuItem();
+=======
+>>>>>>> master:DB-Tool/src/MamaGUI.java
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Big Mama Management Software");
@@ -126,46 +169,16 @@ public class MamaGUI extends javax.swing.JFrame {
         getContentPane().add(Buttons, java.awt.BorderLayout.PAGE_END);
         Buttons.setBackground(Color.WHITE);
 
-        fileMenu.setText("File");
-
-        about.setText("About");
-        fileMenu.add(about);
-
-        help.setText("Help");
-        fileMenu.add(help);
-
-        jMenuBar1.add(fileMenu);
-
-        editMenu.setText("Edit");
-
-        csvImport.setText("Import from CSV");
-        csvImport.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                csvImportMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                csvImportMousePressed(evt);
-            }
-        });
-        csvImport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                csvImportActionPerformed(evt);
-            }
-        });
-        editMenu.add(csvImport);
-
-        logout.setText("Logout");
-        editMenu.add(logout);
-
-        jMenuBar1.add(editMenu);
-
-        setJMenuBar(jMenuBar1);
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btAddMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btAddMousePressed
+<<<<<<< Updated upstream:DBTool_Test/src/MamaGUI.java
         
+=======
+<<<<<<< HEAD:DBTool_Test/src/MamaGUI.java
+
+>>>>>>> Stashed changes:DB-Tool/src/MamaGUI.java
     }//GEN-LAST:event_btAddMousePressed
 
     private void btLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btLoginMousePressed
@@ -184,6 +197,30 @@ public class MamaGUI extends javax.swing.JFrame {
         StartMenu.setVisible(true);
     }//GEN-LAST:event_csvImportMousePressed
 
+=======
+        StartMenu.setVisible(true);
+    }//GEN-LAST:event_btAddMousePressed
+
+    private void btLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btLoginMousePressed
+        createWindow(loginPanel);
+    }//GEN-LAST:event_btLoginMousePressed
+
+    
+    private void createWindow(JPanel content){
+        JFrame loginFrame = new JFrame();
+        loginFrame.add(content);
+        loginFrame.setSize(300, 300);
+        loginFrame.setLocationRelativeTo(null);
+        loginFrame.setVisible(true);
+    }
+    private void createWindow(JPanel content,int width,int height){
+         JFrame loginFrame = new JFrame();
+        loginFrame.add(content);
+        loginFrame.setSize(width, height);
+        loginFrame.setLocationRelativeTo(null);
+        loginFrame.setVisible(true);
+    }
+>>>>>>> master:DB-Tool/src/MamaGUI.java
     /**
      * @param args the command line arguments
      */
@@ -224,17 +261,19 @@ public class MamaGUI extends javax.swing.JFrame {
     private javax.swing.JPanel Buttons;
     private javax.swing.JScrollPane ScrollPane;
     private javax.swing.JPanel Tables;
-    private javax.swing.JMenuItem about;
     private javax.swing.JButton btAdd;
     private javax.swing.JButton btDelete;
     private javax.swing.JButton btEdit;
     private javax.swing.JButton btLogin;
+<<<<<<< HEAD:DBTool_Test/src/MamaGUI.java
     private javax.swing.JMenuItem csvImport;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenuItem help;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem logout;
+=======
+>>>>>>> master:DB-Tool/src/MamaGUI.java
     private javax.swing.JTable table1;
     // End of variables declaration//GEN-END:variables
 }
