@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
+      <SubComponents>
+        <Menu class="javax.swing.JMenu" name="fileMenu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="File"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="about">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="About"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="help">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Help"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="editMenu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Edit"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="csvImport">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Import from CSV"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="csvImportMouseClicked"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="csvImportMousePressed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="csvImportActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="logout">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Logout"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+      </SubComponents>
+    </Menu>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="Big Mama Management Software"/>
@@ -9,6 +54,7 @@
     </Property>
   </Properties>
   <SyntheticProperties>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
@@ -33,11 +79,14 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
-          <BorderConstraints direction="After"/>
+          <BorderConstraints direction="Center"/>
         </Constraint>
       </Constraints>
 
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+        <Property name="columns" type="int" value="0"/>
+        <Property name="rows" type="int" value="1"/>
+      </Layout>
       <SubComponents>
         <Container class="javax.swing.JScrollPane" name="ScrollPane">
           <AuxValues>
@@ -96,7 +145,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
-          <BorderConstraints direction="Last"/>
+          <BorderConstraints direction="South"/>
         </Constraint>
       </Constraints>
 
@@ -107,7 +156,7 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btAdd">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor" postCode="//btAdd.setBorder(new RoundedBorder(10)); //10 is the radius&#xa;btAdd.setForeground(Color.WHITE);&#xa;btAdd.setBackground(Color.decode(&quot;#728bd4&quot;));">
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor" postCode="//btAdd.setBorder(new RoundedBorder(10)); //10 is the radius&#xa;btAdd.setForeground(Color.WHITE);&#xa;btAdd.setBackground(Color.decode(&quot;#1179BF&quot;));">
               <Font name="Verdana" size="12" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Hinz&#xfc;fgen"/>
@@ -118,15 +167,18 @@
         </Component>
         <Component class="javax.swing.JButton" name="btEdit">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="btEdit.setForeground(Color.WHITE);&#xa;btEdit.setBackground(Color.decode(&quot;#728bd4&quot;));">
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="btEdit.setForeground(Color.WHITE);&#xa;btEdit.setBackground(Color.decode(&quot;#1179BF&quot;));">
               <Connection code="new java.awt.Font(&quot;Verdana&quot;, 1, 12)" type="code"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Bearbeiten"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="//btEdit.setText(&quot;&lt;html&gt;&lt;div style=&apos;background-color: orange;width:100% !important;height:100% !important;&apos;&gt; test &lt;/div&gt;&lt;/html&gt;&quot;);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="btDelete">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="btDelete.setForeground(Color.WHITE);&#xa;btDelete.setBackground(Color.decode(&quot;#728bd4&quot;));">
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="btDelete.setForeground(Color.WHITE);&#xa;btDelete.setBackground(Color.decode(&quot;#1179BF&quot;));">
               <Connection code="new java.awt.Font(&quot;Verdana&quot;, 1, 12)" type="code"/>
             </Property>
             <Property name="text" type="java.lang.String" value="L&#xf6;schen"/>
@@ -134,7 +186,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btLogin">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="btLogin.setForeground(Color.WHITE);&#xa;btLogin.setBackground(Color.decode(&quot;#728bd4&quot;));">
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor" postCode="btLogin.setForeground(Color.WHITE);&#xa;btLogin.setBackground(Color.decode(&quot;#1179BF&quot;));">
               <Connection code="new java.awt.Font(&quot;Verdana&quot;, 1, 12)" type="code"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Login"/>
@@ -142,6 +194,26 @@
           <Events>
             <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btLoginMousePressed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="dlSelect">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new java.awt.Font(&quot;Verdana&quot;, 1, 12)" type="code"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+            <Property name="selectedItem" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="null" type="code"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="dlSelect.setForeground(Color.WHITE);&#xa;dlSelect.setBackground(Color.decode(&quot;#1179BF&quot;));"/>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
