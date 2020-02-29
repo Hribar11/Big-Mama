@@ -9,7 +9,7 @@ public class TableModel extends AbstractTableModel {
 
     private List<String> columnNames = new ArrayList();
     private List<ArrayList<String>> list = new ArrayList();
-    private DatabaseGateway dbGateway = new DatabaseGateway();
+    private DatabaseGateway dbGateway = DatabaseGateway.getInstance();
 
     public TableModel(){
         loadFromDB();
@@ -37,6 +37,8 @@ public class TableModel extends AbstractTableModel {
     public void loadFromDB(){
         list = dbGateway.getRows();
         columnNames = dbGateway.getColumnNames();
+        fireTableStructureChanged();
+        fireTableDataChanged();
     }
 
     @Override

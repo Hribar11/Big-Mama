@@ -22,9 +22,8 @@ public class StartMenu extends javax.swing.JFrame {
      */
     public StartMenu() {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.getContentPane().setBackground(Color.WHITE);
-        
-        
     }
 
     /**

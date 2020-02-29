@@ -1,7 +1,5 @@
 package src;
 
-
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,12 +9,16 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import panels.FilterPanel;
 import panels.LoginCheckPanel;
+import sun.swing.FilePane;
 
 /**
  *
@@ -32,7 +34,7 @@ public class MamaGUI extends JFrame {
     public MamaGUI() {
         initComponents();
         setLocationRelativeTo(null);
-        
+
         table1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -40,7 +42,7 @@ public class MamaGUI extends JFrame {
             }
         });
         table1.setModel(tableModel);
-        
+
         this.getContentPane().setBackground(Color.WHITE);
     }
 
@@ -49,13 +51,12 @@ public class MamaGUI extends JFrame {
         
         dlSelect.setSelectedIndex(index);
     }*/
-
     String buttonName;
 
     public MamaGUI(String buttonName) {
         initComponents();
         setLocationRelativeTo(null);
-        
+
         table1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -67,10 +68,10 @@ public class MamaGUI extends JFrame {
         this.getContentPane().setBackground(Color.WHITE);
         this.buttonName = buttonName;
 
-        DefaultComboBoxModel selectModel = (DefaultComboBoxModel) dlSelect.getModel();
+        DefaultComboBoxModel comboBoxModel = (DefaultComboBoxModel) dlSelect.getModel();
 
-        if (selectModel.getIndexOf(buttonName) == -1) {
-            selectModel.addElement(buttonName);
+        if (comboBoxModel.getIndexOf(buttonName) == -1) {
+            comboBoxModel.addElement(buttonName);
         }
         //dlSelect.setSelectedIndex(Integer.parseInt(buttonName.substring(5))); 
     }
@@ -100,6 +101,7 @@ public class MamaGUI extends JFrame {
         editMenu = new javax.swing.JMenu();
         csvImport = new javax.swing.JMenuItem();
         logout = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Big Mama Management Software");
@@ -208,6 +210,15 @@ public class MamaGUI extends JFrame {
 
         jMenuBar1.add(editMenu);
 
+        jMenu1.setText("Filter");
+        jMenu1.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                onShowFilter(evt);
+            }
+        });
+        jMenuBar1.add(jMenu1);
+
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -232,14 +243,29 @@ public class MamaGUI extends JFrame {
     private void csvImportMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_csvImportMousePressed
         System.out.println("CSV Import Button");
     }//GEN-LAST:event_csvImportMousePressed
-    
-    public void createFrame(JPanel panel){
+
+    private void onShowFilter(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_onShowFilter
+        createFrame(new FilterPanel());
+    }//GEN-LAST:event_onShowFilter
+
+    public void createFrame(JPanel panel) {
         JFrame frame = new JFrame();
         frame.add(panel);
         frame.setVisible(true);
-        frame.setSize(500,300);
+        frame.setSize(500, 300);
         frame.setLocationRelativeTo(null);
+
+        if (panel instanceof FilterPanel) {
+            frame.setLocationRelativeTo(this);
+            frame.addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e) {
+                    tableModel.loadFromDB();
+                }
+
+            });
+        }
     }
+
     /**
      * @param args the command line arguments
      */
@@ -290,6 +316,7 @@ public class MamaGUI extends JFrame {
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenuItem help;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem logout;
     private javax.swing.JTable table1;
