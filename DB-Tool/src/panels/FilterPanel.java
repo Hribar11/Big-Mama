@@ -5,6 +5,7 @@
  */
 package panels;
 
+import data.SQLResult;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.*;
@@ -81,8 +82,8 @@ public class FilterPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void initComboBox() {
-        dbgw.runQuery("SELECT table_name FROM information_schema.tables");
-        tables = dbgw.getRows();
+        SQLResult result = dbgw.runQuery("SELECT table_name FROM information_schema.tables");
+        tables = result.getRows();
         for (ArrayList<String> list : tables) {
             for (String s : list) {
                 if (!(s.equals("MaterialProjekt") || s.equals("sysdiagrams"))) {
@@ -96,9 +97,8 @@ public class FilterPanel extends javax.swing.JPanel {
             public void itemStateChanged(ItemEvent e) {
                 if (e.getStateChange() == ItemEvent.SELECTED) {
                     cbValues.removeAllItems();
-                    dbgw.runQuery("SELECT BEZEICHNUNG FROM " + cbTables.getSelectedItem());
-                    values = dbgw.getRows();
-                    for (ArrayList<String> l : values) {
+                    
+                    for (ArrayList<String> l : dbgw.runQuery("SELECT BEZEICHNUNG FROM " + cbTables.getSelectedItem()).getRows()) {
                         for (String s : l) {
                             cbValues.addItem(s);
                         }

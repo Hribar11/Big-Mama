@@ -2,6 +2,7 @@ package src;
 
 
 
+import data.SQLResult;
 import javax.swing.table.AbstractTableModel;
 import java.util.*;
 
@@ -35,8 +36,9 @@ public class TableModel extends AbstractTableModel {
     }
 
     public void loadFromDB(){
-        list = dbGateway.getRows();
-        columnNames = dbGateway.getColumnNames();
+        SQLResult result = dbGateway.runQuery("");
+        list = result.getRows();
+        columnNames = result.getHeaders();
         fireTableStructureChanged();
         fireTableDataChanged();
     }
