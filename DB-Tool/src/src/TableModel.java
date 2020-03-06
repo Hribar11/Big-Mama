@@ -36,7 +36,8 @@ public class TableModel extends AbstractTableModel {
     }
 
     public void loadFromDB(){
-        SQLResult result = dbGateway.runQuery("");
+        SQLResult result = dbGateway.runQuery("SELECT * FROM LINIE");
+        System.out.println(result.getRows());
         list = result.getRows();
         columnNames = result.getHeaders();
         fireTableStructureChanged();

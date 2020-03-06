@@ -16,8 +16,8 @@ import java.util.List;
  */
 public class SQLResult {
 
-    public List<ArrayList<String>> rows;
-    public List<String> headers;
+    public List<ArrayList<String>> rows = new ArrayList<>();
+    public List<String> headers = new ArrayList<>();
     public ResultSet rs;
 
     public SQLResult(ResultSet rs) {
@@ -26,8 +26,25 @@ public class SQLResult {
             getHeadersFromData();
             getRowsFromData();
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("SQLResult: " + e);
         }
+    }
+
+    public SQLResult() {
+        headers.add("test1");
+        headers.add("test1");
+        headers.add("test1");
+        
+        rows.add(new ArrayList<String>(){{
+            add("test1");
+            add("test2");
+            add("test3");
+        }});
+        rows.add(new ArrayList<String>(){{
+            add("test1");
+            add("test2");
+            add("test3");
+        }});
     }
 
     private void getHeadersFromData() throws Exception {
@@ -37,6 +54,7 @@ public class SQLResult {
         for (int i = 1; i < rsm.getColumnCount() + 1; i++) {
             if (!prev.equals(rsm.getColumnName(i))) {
                 headers.add(rsm.getColumnName(i));
+                System.out.println(rsm.getColumnName(i));
             }
             prev = rsm.getColumnName(i);
         }

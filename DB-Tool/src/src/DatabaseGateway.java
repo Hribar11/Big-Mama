@@ -32,14 +32,13 @@ public class DatabaseGateway {
         if (query.isEmpty()) {
             query = "SELECT BKID, b.BEZEICHNUNG, w.BEZEICHNUNG FROM dbo.baukasten b INNER JOIN dbo.Werk w ON b.WID = w.WID";
         }
-        ResultSet rs = null;
         try {
-            rs = establishConnection(query);
+            return new SQLResult(establishConnection(query));
 
         } catch (Exception e) {
             System.out.println(e);
         }
-        return new SQLResult(rs);
+        return new SQLResult();
 
     }
 
